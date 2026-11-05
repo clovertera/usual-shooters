@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bbba1efb7yqdp"]
+
+[ext_resource type="PackedScene" uid="uid://b84g6btc8d345" path="res://scenes/environment/world_environment.tscn" id="1_ycx7s"]
+[ext_resource type="PackedScene" uid="uid://b6i2trjxh4cm1" path="res://scenes/player/player_controller.tscn" id="2_htrvu"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4q5nu"]
+size = Vector2(30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iivv4"]
+size = Vector3(30, 0, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ycx7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_htrvu"]
+
+[node name="PrototypeLevel" type="Node3D" unique_id=1926486793]
+
+[node name="Geometry" type="Node3D" parent="." unique_id=1318764005]
+
+[node name="Floor" type="StaticBody3D" parent="Geometry" unique_id=2141181619]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Floor" unique_id=272238051]
+mesh = SubResource("PlaneMesh_4q5nu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Floor" unique_id=902584525]
+shape = SubResource("BoxShape3D_iivv4")
+
+[node name="CrouchCheck" type="StaticBody3D" parent="Geometry" unique_id=1567355415]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/CrouchCheck" unique_id=162485214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5327387, 1.4181848, 0)
+mesh = SubResource("BoxMesh_ycx7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/CrouchCheck" unique_id=1168480861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5327387, 1.4181848, 0)
+shape = SubResource("BoxShape3D_htrvu")
+
+[node name="WorldEnvironment" parent="Geometry" unique_id=1035350036 instance=ExtResource("1_ycx7s")]
+
+[node name="PlayerController" parent="Geometry" unique_id=575817634 instance=ExtResource("2_htrvu")]

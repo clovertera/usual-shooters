@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b6i2trjxh4cm1"]
+
+[ext_resource type="Script" uid="uid://d2rfc5wmudh5k" path="res://assets/scripts/player/components/mouse_capture.gd" id="1_4q5nu"]
+[ext_resource type="Script" uid="uid://b3krr78as37cd" path="res://assets/scripts/player/camera_controller.gd" id="1_iivv4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6d5sj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6d5sj"]
+
+[node name="PlayerController" type="CharacterBody3D" unique_id=575817634]
+
+[node name="PlaceholderMesh" type="MeshInstance3D" parent="." unique_id=152013360]
+mesh = SubResource("CapsuleMesh_6d5sj")
+
+[node name="StandingCollision" type="CollisionShape3D" parent="." unique_id=1929420172]
+shape = SubResource("CapsuleShape3D_6d5sj")
+
+[node name="CameraController" type="Node3D" parent="." unique_id=2021907165]
+script = ExtResource("1_iivv4")
+
+[node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=674625153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Components" type="Node" parent="." unique_id=681830743]
+
+[node name="MouseCapture" type="Node" parent="Components" unique_id=1823131759]
+script = ExtResource("1_4q5nu")
+debug = true
