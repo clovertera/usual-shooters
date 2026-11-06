@@ -20,6 +20,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_priority = 100 
 	Input.mouse_mode = current_mouse_mode
 
 

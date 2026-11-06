@@ -38,3 +38,4 @@ shape = SubResource("BoxShape3D_htrvu")
 [node name="WorldEnvironment" parent="Geometry" unique_id=1035350036 instance=ExtResource("1_ycx7s")]
 
 [node name="PlayerController" parent="Geometry" unique_id=575817634 instance=ExtResource("2_htrvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1753385, 0)
