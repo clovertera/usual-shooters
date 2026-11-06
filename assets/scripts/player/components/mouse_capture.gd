@@ -10,15 +10,11 @@ var _mouse_input : Vector2
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	_capture_mouse = event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 	if _capture_mouse:
 		_mouse_input.x += -event.screen_relative.x * mouse_sensitivity
 		_mouse_input.y += -event.screen_relative.y * mouse_sensitivity
 	if debug:
 		print(_mouse_input)
-	elif event.is_action_pressed(&"ui_cancel"):
-		release_mouse()
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,5 +25,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_mouse_input = Vector2.ZERO
+	
 func release_mouse() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+func capture_mouse() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
