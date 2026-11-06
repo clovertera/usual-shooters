@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bgglnkjwf56y4"]
+
+[ext_resource type="Script" uid="uid://dl7ad5xanr7tr" path="res://scenes/multiPlayer/multiPlayer.gd" id="1_2vp2j"]
+[ext_resource type="Script" uid="uid://b3krr78as37cd" path="res://assets/scripts/player/camera_controller.gd" id="2_rygs7"]
+[ext_resource type="Script" uid="uid://d2rfc5wmudh5k" path="res://assets/scripts/player/components/mouse_capture.gd" id="3_cho8h"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6d5sj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6d5sj"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wa5vo"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="multiPlayerController" type="CharacterBody3D" unique_id=575817634]
+script = ExtResource("1_2vp2j")
+
+[node name="PlaceholderMesh" type="MeshInstance3D" parent="." unique_id=152013360]
+mesh = SubResource("CapsuleMesh_6d5sj")
+
+[node name="StandingCollision" type="CollisionShape3D" parent="." unique_id=1929420172]
+shape = SubResource("CapsuleShape3D_6d5sj")
+
+[node name="CameraController" type="Node3D" parent="." unique_id=2021907165 node_paths=PackedStringArray("player_controller", "component_mouse_capture")]
+script = ExtResource("2_rygs7")
+player_controller = NodePath("..")
+component_mouse_capture = NodePath("../Components/MouseCapture")
+
+[node name="Camera3D" type="Camera3D" parent="CameraController" unique_id=674625153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Components" type="Node" parent="." unique_id=681830743]
+
+[node name="MouseCapture" type="Node" parent="Components" unique_id=1823131759]
+script = ExtResource("3_cho8h")
+debug = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=919440958]
+replication_config = SubResource("SceneReplicationConfig_wa5vo")

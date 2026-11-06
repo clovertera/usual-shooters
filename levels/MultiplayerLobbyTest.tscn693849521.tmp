@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ba01d567vfokr"]
+
+[ext_resource type="Script" uid="uid://dsbtcuvfuc3pp" path="res://levels/steamNetworking.gd" id="1_rsw3q"]
+[ext_resource type="PackedScene" uid="uid://bbba1efb7yqdp" path="res://levels/prototype_level.tscn" id="2_3t4ca"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_k1wni"]
+
+[node name="MultiplayerLobbyTest" type="Node3D" unique_id=187579292]
+script = ExtResource("1_rsw3q")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1416073194]
+_spawnable_scenes = PackedStringArray("uid://b6i2trjxh4cm1")
+spawn_path = NodePath("../Players")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1908514231]
+replication_config = SubResource("SceneReplicationConfig_k1wni")
+
+[node name="PrototypeLevel" parent="." unique_id=1926486793 instance=ExtResource("2_3t4ca")]
+
+[node name="Players" type="Node3D" parent="." unique_id=1217867566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2722964, 0)

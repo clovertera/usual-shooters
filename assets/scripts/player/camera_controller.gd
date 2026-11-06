@@ -2,7 +2,7 @@ class_name CameraController extends Node3D
 
 @export var debug : bool = false
 @export_category("References")
-@export var player_controller : PlayerController
+@export var player_controller : multiPlayerController
 @export var component_mouse_capture : MouseCaptureComponent
 @export_category("Camera Settings")
 @export_range(-90, -60) var tilt_lower_limit : int = -89

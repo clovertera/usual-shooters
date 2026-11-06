@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ba01d567vfokr"]
+
+[ext_resource type="Script" uid="uid://tn5vagupt6nj" path="res://levels/multiplayer_lobby_test.gd" id="1_3t4ca"]
+[ext_resource type="PackedScene" uid="uid://b84g6btc8d345" path="res://scenes/environment/world_environment.tscn" id="2_k1wni"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_k1wni"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b77ls"]
+size = Vector2(30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2gom0"]
+size = Vector3(30, 0, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qo0pr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cntr3"]
+
+[node name="MultiplayerLobbyTest" type="Node3D" unique_id=187579292]
+script = ExtResource("1_3t4ca")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1416073194]
+_spawnable_scenes = PackedStringArray("uid://bgglnkjwf56y4")
+spawn_path = NodePath("../Players")
+spawn_limit = 13
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1908514231]
+replication_config = SubResource("SceneReplicationConfig_k1wni")
+
+[node name="Players" type="Node3D" parent="." unique_id=1217867566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2722964, 0)
+
+[node name="Geometry" type="Node3D" parent="." unique_id=281423892]
+
+[node name="Floor" type="StaticBody3D" parent="Geometry" unique_id=1195311189]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Floor" unique_id=1871560515]
+mesh = SubResource("PlaneMesh_b77ls")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Floor" unique_id=508602977]
+shape = SubResource("BoxShape3D_2gom0")
+
+[node name="CrouchCheck" type="StaticBody3D" parent="Geometry" unique_id=422022197]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/CrouchCheck" unique_id=1079616231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5327387, 1.4181848, 0)
+mesh = SubResource("BoxMesh_qo0pr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/CrouchCheck" unique_id=1840579614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5327387, 1.4181848, 0)
+shape = SubResource("BoxShape3D_cntr3")
+
+[node name="WorldEnvironment" parent="Geometry" unique_id=1035350036 instance=ExtResource("2_k1wni")]
+
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=1859500648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4916289, 0)
