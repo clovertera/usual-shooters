@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6i2trjxh4cm1"]
 
-[ext_resource type="Script" uid="uid://bywc2b7wmk5gm" path="res://scenes/player/player_controller.gd" id="1_0cfoe"]
+[ext_resource type="Script" uid="uid://bywc2b7wmk5gm" path="res://assets/scripts/player/player_controller.gd" id="1_0cfoe"]
 [ext_resource type="Script" uid="uid://d2rfc5wmudh5k" path="res://assets/scripts/player/components/mouse_capture.gd" id="1_4q5nu"]
 [ext_resource type="Script" uid="uid://b3krr78as37cd" path="res://assets/scripts/player/camera_controller.gd" id="1_iivv4"]
 
@@ -29,4 +29,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="MouseCapture" type="Node" parent="Components" unique_id=1823131759]
 script = ExtResource("1_4q5nu")
-debug = true

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgglnkjwf56y4"]
 
-[ext_resource type="Script" uid="uid://dl7ad5xanr7tr" path="res://scenes/multiPlayer/multiPlayer.gd" id="1_2vp2j"]
+[ext_resource type="Script" uid="uid://dl7ad5xanr7tr" path="res://assets/scripts/system/multiPlayer.gd" id="1_2vp2j"]
 [ext_resource type="Script" uid="uid://b3krr78as37cd" path="res://assets/scripts/player/camera_controller.gd" id="2_rygs7"]
 [ext_resource type="Script" uid="uid://d2rfc5wmudh5k" path="res://assets/scripts/player/components/mouse_capture.gd" id="3_cho8h"]
 
